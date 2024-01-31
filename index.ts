@@ -56,7 +56,14 @@ export class FundamentalClient extends AlphaClient {
   }
 }
 
-const symbol = "IBM";
+export class IntelClient extends AlphaClient {
+  async topGainersAndLosers(): Promise<T.TopGainersAndLosersReport> {
+    let res = await super.request(`function=TOP_GAINERS_LOSERS`);
+    return await res.json();
+  }
+}
+
+// const symbol = "IBM";
 // let companyOverview = await new FundamentalClient().companyOverview(symbol);
 // console.log("Company Overview", companyOverview);
 
@@ -71,3 +78,6 @@ const symbol = "IBM";
 
 // let earnings = await new FundamentalClient().earnings(symbol);
 // console.log("Earnings", earnings);
+
+// let gainers = await new IntelClient().topGainersAndLosers();
+// console.log("Top Gainers and Losers", gainers);

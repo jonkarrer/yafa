@@ -177,3 +177,19 @@ export type Earnings = {
   surprise: string;
   surprisePercentage: string;
 };
+
+export type TopGainersAndLosersReport = {
+  metadata: string;
+  last_updated: string;
+  top_gainers: Array<ChangeTicker>;
+  top_losers: Array<ChangeTicker>;
+  most_actively_traded: Array<ChangeTicker>;
+};
+
+export type ChangeTicker = {
+  ticker: string;
+  price: string;
+  change_amount: string;
+  change_percentage: string;
+  volume: string;
+};
