@@ -63,9 +63,9 @@ export class IntelClient extends AlphaClient {
   }
 }
 
-// const symbol = "IBM";
-// let companyOverview = await new FundamentalClient().companyOverview(symbol);
-// console.log("Company Overview", companyOverview);
+const symbol = "IBM";
+let companyOverview = await new FundamentalClient().companyOverview(symbol);
+console.log("Company Overview", companyOverview);
 
 // let incomeStatement = await new FundamentalClient().incomeStatement(symbol);
 // console.log("Income Statement", incomeStatement);
