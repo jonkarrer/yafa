@@ -63,7 +63,7 @@ export class IntelClient extends AlphaClient {
   }
 }
 
-const symbol = "IBM";
+const symbol = "TSLA";
 let companyOverview = await new FundamentalClient().companyOverview(symbol);
 console.log("Company Overview", companyOverview);
 
