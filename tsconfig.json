@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2021",
+    "strict": true,
+    "module": "ES2022" /* Specify what module code is generated. */ /* Specify the root folder within your source files. */,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "jsxFactory": "Html.createElement",
+    "jsxFragmentFactory": "Html.Fragment",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["bun-types"]
+  }
+}

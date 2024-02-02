@@ -1,4 +1,4 @@
-import * as T from "./types";
+import * as T from "../domain/types";
 
 class AlphaClient {
   API_KEY = "JHHLXJ0VRUUA8U2E";
@@ -23,7 +23,7 @@ class AlphaClient {
 
       return res;
     } catch (e) {
-      console.error(e.message);
+      console.error(e);
       throw e;
     }
   }
@@ -62,22 +62,3 @@ export class IntelClient extends AlphaClient {
     return await res.json();
   }
 }
-
-const symbol = "TSLA";
-let companyOverview = await new FundamentalClient().companyOverview(symbol);
-console.log("Company Overview", companyOverview);
-
-// let incomeStatement = await new FundamentalClient().incomeStatement(symbol);
-// console.log("Income Statement", incomeStatement);
-
-// let balanceSheet = await new FundamentalClient().balanceSheet(symbol);
-// console.log("Balance Statement", balanceSheet);
-
-// let cashFlow = await new FundamentalClient().cashFlow(symbol);
-// console.log("Cash Flow", cashFlow);
-
-// let earnings = await new FundamentalClient().earnings(symbol);
-// console.log("Earnings", earnings);
-
-// let gainers = await new IntelClient().topGainersAndLosers();
-// console.log("Top Gainers and Losers", gainers);

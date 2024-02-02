@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    hostname: web
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    environment:
+      - ALPHA_VANTAGE_API_KEY=${ALPHA_VANTAGE_API_KEY}
+      - APP_HOST=${APP_HOST}
