@@ -1,7 +1,7 @@
 import * as T from "../domain/types";
 
 class AlphaClient {
-  API_KEY = "JHHLXJ0VRUUA8U2E";
+  API_KEY = Bun.env.ALPHA_VANTAGE_API_KEY;
   BASE_URL = `https://www.alphavantage.co/query?apikey=${this.API_KEY}`;
 
   async request(
@@ -62,3 +62,18 @@ export class IntelClient extends AlphaClient {
     return await res.json();
   }
 }
+
+// let incomeStatement = await new FundamentalClient().incomeStatement("IBM");
+// console.log("Income Statement", incomeStatement.annualReports[0]);
+
+// let balanceSheet = await new FundamentalClient().balanceSheet(symbol);
+// console.log("Balance Statement", balanceSheet);
+
+// let cashFlow = await new FundamentalClient().cashFlow(symbol);
+// console.log("Cash Flow", cashFlow);
+
+// let earnings = await new FundamentalClient().earnings(symbol);
+// console.log("Earnings", earnings);
+
+// let gainers = await new IntelClient().topGainersAndLosers();
+// console.log("Top Gainers and Losers", gainers);
