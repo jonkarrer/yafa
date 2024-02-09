@@ -13,18 +13,30 @@ export default async function Home(query = ""): Promise<JSX.Element> {
       new FundamentalClient().companyOverview(item)
     );
 
-  let company_overviews = await Promise.all(company_overview_reqs);
+  let company_overviews: Array<CompanyOverview> = await Promise.all(
+    company_overview_reqs
+  );
   console.log(company_overviews);
 
   return (
     <ol style={style}>
-      {requested_company_symbols.map((item) => {
-        return <li>{item}</li>;
+      {company_overviews.map((item) => {
+        return (
+          <li>
+            <h3>{item.Symbol}</h3>
+            <p>EPS: {item.EPS}</p>
+            <p>P/E Ratio: {item.PERatio}</p>
+            <p>P/B Ratio: {item.PriceToBookRatio}</p>
+            <p>P/D Ratio: {item.DividendPerShare}</p>
+          </li>
+        );
       })}
     </ol>
   );
 }
 
 const style = {
-  background: "red",
+  background: "wheat",
 };
+
+// http://localhost:3000/?companies=TSLA,IBM,SO
