@@ -1,8 +1,6 @@
 import { Elysia } from "elysia";
 import { html } from "@elysiajs/html";
-import Home from "./Home";
+import Router from "./infra/router";
 
-new Elysia()
-  .use(html())
-  .get("/", ({ query }) => Home(query["companies"]))
-  .listen(3000);
+console.log("App Listening on localhost:3300");
+new Elysia().use(html()).use(Router).listen(3300);

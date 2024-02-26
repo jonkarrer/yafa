@@ -1,5 +1,5 @@
 // XLF
-const FINANCE_SECTOR = [
+export const FINANCE_SECTOR = [
   "JPM",
   "WFC",
   "C",
@@ -21,7 +21,6 @@ const FINANCE_SECTOR = [
   "CM",
   "ITUB",
   "BBD",
-  "RBS",
   "LYG",
   "BCS",
   "SMFG",
@@ -34,7 +33,7 @@ const FINANCE_SECTOR = [
 ];
 
 // XLK
-const TECH_SECTOR = [
+export const TECH_SECTOR = [
   "AAPL",
   "MSFT",
   "GOOG",
@@ -80,7 +79,7 @@ const TECH_SECTOR = [
 ];
 
 // XLE
-const ENERGY_SECTOR = [
+export const ENERGY_SECTOR = [
   "XOM",
   "CVX",
   "COP",
@@ -116,7 +115,7 @@ const ENERGY_SECTOR = [
 ];
 
 // XLU
-const UTILITY_SECTOR = [
+export const UTILITY_SECTOR = [
   "NEE",
   "DUK",
   "D",
@@ -152,7 +151,7 @@ const UTILITY_SECTOR = [
 ];
 
 // XLRE
-const REAL_ESTATE_SECTOR = [
+export const REAL_ESTATE_SECTOR = [
   "AVB",
   "EQR",
   "DLR",
@@ -176,7 +175,7 @@ const REAL_ESTATE_SECTOR = [
 ];
 
 // XLC
-const COMMUNICATION_SECTOR = [
+export const COMMUNICATION_SECTOR = [
   "DIS",
   "CMCSA",
   "VZ",
@@ -194,14 +193,13 @@ const COMMUNICATION_SECTOR = [
   "IQ",
   "VIAV",
   "EA",
-  "ATVI",
   "SPOT",
   "NFLX",
   "XLC",
 ];
 
 // XME
-const METALS_MINING_SECTOR = [
+export const METALS_MINING_SECTOR = [
   "AEM",
   "WPM",
   "TECK",
@@ -220,7 +218,6 @@ const METALS_MINING_SECTOR = [
   "STLD",
   "RS",
   "CMC",
-  "SCHN",
   "WOR",
   "SAND",
   "ARCH",
@@ -237,7 +234,7 @@ const METALS_MINING_SECTOR = [
 ];
 
 // XLP
-const CONSUMER_STAPLES_SECTOR = [
+export const CONSUMER_STAPLES_SECTOR = [
   "PG",
   "KO",
   "PEP",
@@ -271,7 +268,7 @@ const CONSUMER_STAPLES_SECTOR = [
 ];
 
 // XLB
-const MATERIALS_SECTOR = [
+export const MATERIALS_SECTOR = [
   "LIN",
   "APD",
   "ECL",
@@ -292,7 +289,7 @@ const MATERIALS_SECTOR = [
 ];
 
 // XLI
-const INDUSTRIAL_SECTOR = [
+export const INDUSTRIAL_SECTOR = [
   "MMM",
   "GE",
   "HON",
@@ -338,7 +335,7 @@ const INDUSTRIAL_SECTOR = [
 ];
 
 // XLV
-const HEALTHCARE_SECTOR = [
+export const HEALTHCARE_SECTOR = [
   "JNJ",
   "PFE",
   "MRK",
@@ -380,7 +377,7 @@ const HEALTHCARE_SECTOR = [
 ];
 
 // XLY
-const CONSUMER_DISCRETIONARY_SECTOR = [
+export const CONSUMER_DISCRETIONARY_SECTOR = [
   "HD",
   "MCD",
   "NKE",
@@ -425,7 +422,7 @@ const CONSUMER_DISCRETIONARY_SECTOR = [
 ];
 
 // SMH
-const SEMICONDUCTOR_SECTOR = [
+export const SEMICONDUCTOR_SECTOR = [
   "INTC",
   "TSM",
   "QCOM",
@@ -460,7 +457,7 @@ const SEMICONDUCTOR_SECTOR = [
 ];
 
 // XTN
-const TRANSPORTATION_SECTOR = [
+export const TRANSPORTATION_SECTOR = [
   "UPS",
   "FDX",
   "DAL",
@@ -494,13 +491,12 @@ const TRANSPORTATION_SECTOR = [
 ];
 
 // VWO
-const EMERGING_MARKETS_SECTOR = [
+export const EMERGING_MARKETS_SECTOR = [
   "BABA",
   "HDB",
   "GGAL",
   "BMA",
   "BBAR",
-  "TSU",
   "VALE",
   "ITUB",
   "PBR",
@@ -516,7 +512,7 @@ const EMERGING_MARKETS_SECTOR = [
   "VWO",
 ];
 
-const EXCHANGE_TRADED_FUNDS = [
+export const EXCHANGE_TRADED_FUNDS = [
   "XLF",
   "XLRE",
   "XLC",
@@ -530,4 +526,49 @@ const EXCHANGE_TRADED_FUNDS = [
   "XLY",
   "XTN",
   "XLU",
+  "SMH",
+  "VWO",
+  "QQQ",
+  "SPY",
+  "VTI",
+  "VEA",
+  "SCHF",
+  "VOO",
+  "VCLT",
+  "VNQ",
+  "VDE",
+  "VTV",
+  "VUG",
+  "VHT",
+  "VAW",
+  "VIS",
+  "VFH",
+  "VPU",
+  "VB",
+  "VO",
+  "VYM",
+  "XPO",
 ];
+
+export function get_all_unique_stock_symbols(): Array<string> {
+  let all_stock_symbols = [];
+
+  all_stock_symbols.push(...FINANCE_SECTOR);
+  all_stock_symbols.push(...TECH_SECTOR);
+  all_stock_symbols.push(...ENERGY_SECTOR);
+  all_stock_symbols.push(...UTILITY_SECTOR);
+  all_stock_symbols.push(...REAL_ESTATE_SECTOR);
+  all_stock_symbols.push(...COMMUNICATION_SECTOR);
+  all_stock_symbols.push(...METALS_MINING_SECTOR);
+  all_stock_symbols.push(...CONSUMER_STAPLES_SECTOR);
+  all_stock_symbols.push(...MATERIALS_SECTOR);
+  all_stock_symbols.push(...INDUSTRIAL_SECTOR);
+  all_stock_symbols.push(...HEALTHCARE_SECTOR);
+  all_stock_symbols.push(...CONSUMER_DISCRETIONARY_SECTOR);
+  all_stock_symbols.push(...SEMICONDUCTOR_SECTOR);
+  all_stock_symbols.push(...TRANSPORTATION_SECTOR);
+  all_stock_symbols.push(...EMERGING_MARKETS_SECTOR);
+  all_stock_symbols.push(...EXCHANGE_TRADED_FUNDS);
+
+  return all_stock_symbols;
+}

@@ -193,3 +193,15 @@ export type ChangeTicker = {
   change_percentage: string;
   volume: string;
 };
+
+export enum Trend {
+  Bullish = "Bullish",
+  Bearish = "Bearish",
+}
+
+export type Setup = {
+  symbol: string;
+  recent_price: number;
+  timestamp: string;
+  signal_trend: Trend;
+};

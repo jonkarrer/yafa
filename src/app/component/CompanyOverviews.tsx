@@ -1,5 +1,5 @@
-import { FundamentalClient } from "./app/alpha_client";
-import { CompanyOverview } from "./domain/types";
+import { FundamentalClient } from "../clients/alpha_client";
+import { CompanyOverview } from "../../domain/types";
 
 function CompanyCard({ overview }: { overview: CompanyOverview }): JSX.Element {
   const container = {
@@ -12,8 +12,6 @@ function CompanyCard({ overview }: { overview: CompanyOverview }): JSX.Element {
   };
 
   const symbol = {
-    // textDecoration: "underline",
-    // textUnderlineOffset: "4px",
     borderBottom: "1px black solid",
     paddingBottom: "4px",
   };
@@ -29,12 +27,17 @@ function CompanyCard({ overview }: { overview: CompanyOverview }): JSX.Element {
   );
 }
 
-export default async function Home(query = ""): Promise<JSX.Element> {
-  let requested_company_symbols: Array<string> = [];
-
-  if (query.length > 0) {
-    requested_company_symbols = query.split(",");
-  }
+export default async function () {
+  let requested_company_symbols: Array<string> = [
+    "SO",
+    "IBM",
+    "BTU",
+    "MRO",
+    "AAPL",
+    "AMZ",
+    "NFLX",
+    "NVDA",
+  ];
 
   let company_overview_reqs: Array<Promise<CompanyOverview>> =
     requested_company_symbols.map((item) =>
@@ -61,5 +64,3 @@ export default async function Home(query = ""): Promise<JSX.Element> {
     </section>
   );
 }
-
-// http://localhost:3000/?companies=TSLA,IBM,SO

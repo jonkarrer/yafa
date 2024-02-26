@@ -1,4 +1,4 @@
-import * as T from "../domain/types";
+import * as T from "../../domain/types";
 
 class AlphaClient {
   API_KEY = Bun.env.ALPHA_VANTAGE_API_KEY;
