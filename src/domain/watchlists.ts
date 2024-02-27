@@ -570,5 +570,7 @@ export function get_all_unique_stock_symbols(): Array<string> {
   all_stock_symbols.push(...EMERGING_MARKETS_SECTOR);
   all_stock_symbols.push(...EXCHANGE_TRADED_FUNDS);
 
-  return all_stock_symbols;
+  let set = new Set([...all_stock_symbols]);
+
+  return Array.from(set);
 }

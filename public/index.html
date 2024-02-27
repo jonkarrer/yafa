@@ -3,7 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <title>Yafa</title>
+
+    <style>
+      :root {
+        --contrast: #1f2f3e;
+        --light: #a6ebe9;
+        --dark: #33c0c6;
+        --white: #eefffe;
+      }
+
+      .Header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 3rem;
+
+        max-width: 1024px;
+        margin: auto;
+      }
+      .Header nav span {
+        margin-left: 1rem;
+      }
+
+      main {
+        padding: 0 3rem;
+
+        max-width: 1024px;
+        margin: auto;
+      }
+
+      .GeneralSection {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        max-width: 700px;
+        margin: 4rem auto;
+      }
+      .CircleMeter {
+        display: grid;
+        place-items: center;
+      }
+      .CircleMeter__outer-circle {
+        background-color: var(--dark);
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 5rem;
+        height: 5rem;
+      }
+      .CircleMeter__inner-circle {
+        background-color: var(--contrast);
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 4rem;
+        height: 4rem;
+      }
+      .CircleMeter__score {
+        color: var(--white);
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header class="Header">
+      <h1>YAFA</h1>
+      <nav>
+        <span>Technical</span>
+        <span>Fundamentals</span>
+        <span>Account</span>
+      </nav>
+    </header>
+
+    <main>
+      <h2>General Indicators</h2>
+      <section class="GeneralSection">
+        <div class="CircleMeter">
+          <div class="CircleMeter__outer-circle">
+            <div class="CircleMeter__inner-circle">
+              <h3 class="CircleMeter__score">70</h3>
+            </div>
+          </div>
+          <h4>Market Trend</h4>
+        </div>
+        <div class="CircleMeter">
+          <div class="CircleMeter__outer-circle">
+            <div class="CircleMeter__inner-circle">
+              <h3 class="CircleMeter__score">43</h3>
+            </div>
+          </div>
+          <h4>Volatility</h4>
+        </div>
+        <div class="CircleMeter">
+          <div class="CircleMeter__outer-circle">
+            <div class="CircleMeter__inner-circle">
+              <h3 class="CircleMeter__score">64</h3>
+            </div>
+          </div>
+          <h4>Growth Sentiment</h4>
+        </div>
+        <div class="CircleMeter">
+          <div class="CircleMeter__outer-circle">
+            <div class="CircleMeter__inner-circle">
+              <h3 class="CircleMeter__score">83</h3>
+            </div>
+          </div>
+          <h4>Domestic Health</h4>
+        </div>
+      </section>
+
+      <section class="TurtleSoupSection">
+        <div
+          hx-get="/setup/turtle_soup_multi"
+          hx-swap="outerHTML"
+          hx-trigger="load"
+        ></div>
+      </section>
+    </main>
+  </body>
 </html>
