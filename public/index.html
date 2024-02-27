@@ -12,17 +12,22 @@
         --contrast: #1f2f3e;
         --light: #a6ebe9;
         --dark: #33c0c6;
-        --white: #eefffe;
+        --white: #f5fefd;
+      }
+
+      body {
+        background-color: var(--white);
       }
 
       .Header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 3rem;
 
-        max-width: 1024px;
+        max-width: 1000px;
         margin: auto;
+
+        border-bottom: 1px solid var(--contrast);
       }
       .Header nav span {
         margin-left: 1rem;
@@ -31,7 +36,7 @@
       main {
         padding: 0 3rem;
 
-        max-width: 1024px;
+        max-width: 1000px;
         margin: auto;
       }
 
@@ -40,7 +45,6 @@
         align-items: center;
         justify-content: space-between;
 
-        max-width: 700px;
         margin: 4rem auto;
       }
       .CircleMeter {
@@ -74,7 +78,7 @@
   </head>
   <body>
     <header class="Header">
-      <h1>YAFA</h1>
+      <h3>YAFA</h3>
       <nav>
         <span>Technical</span>
         <span>Fundamentals</span>
@@ -83,7 +87,6 @@
     </header>
 
     <main>
-      <h2>General Indicators</h2>
       <section class="GeneralSection">
         <div class="CircleMeter">
           <div class="CircleMeter__outer-circle">
@@ -107,7 +110,7 @@
               <h3 class="CircleMeter__score">64</h3>
             </div>
           </div>
-          <h4>Growth Sentiment</h4>
+          <h4>Growth Stocks</h4>
         </div>
         <div class="CircleMeter">
           <div class="CircleMeter__outer-circle">
@@ -117,15 +120,27 @@
           </div>
           <h4>Domestic Health</h4>
         </div>
+        <div class="CircleMeter">
+          <div class="CircleMeter__outer-circle">
+            <div class="CircleMeter__inner-circle">
+              <h3 class="CircleMeter__score">20</h3>
+            </div>
+          </div>
+          <h4>Social Sentiment</h4>
+        </div>
       </section>
 
-      <section class="TurtleSoupSection">
-        <div
-          hx-get="/setup/turtle_soup_multi"
-          hx-swap="outerHTML"
-          hx-trigger="load"
-        ></div>
-      </section>
+      <section
+        hx-get="/setup/turtle_soup_multi"
+        hx-swap="outerHTML"
+        hx-trigger="load"
+      ></section>
+
+      <section
+        hx-get="/setup/mean_reversion_multi"
+        hx-swap="outerHTML"
+        hx-trigger="load"
+      ></section>
     </main>
   </body>
 </html>

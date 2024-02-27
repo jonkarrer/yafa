@@ -33,7 +33,7 @@ class RiverClient {
 
 export class SetupClient extends RiverClient {
   async turtle_soup_single(symbol: String) {
-    let res = await super.request("/setup/turtle_soup/SO", "GET");
+    let res = await super.request(`/setup/turtle_soup/${symbol}`, "GET");
     return await res.json();
   }
 
@@ -52,6 +52,29 @@ export class SetupClient extends RiverClient {
       return [];
     }
 
+    return await res.json();
+  }
+
+  async mean_reversion_multi(symbols: Array<String>): Promise<Array<Setup>> {
+    let h = new Headers({
+      "Content-Type": "application/json",
+    });
+
+    let b = {
+      symbols: symbols,
+    };
+
+    let res = await super.request("/setup/mean_reversion_multi", "POST", h, b);
+
+    if (res.status != 200) {
+      return [];
+    }
+
+    return await res.json();
+  }
+
+  async mean_reversion_single(symbol: String) {
+    let res = await super.request(`/setup/mean_reversion/${symbol}`, "GET");
     return await res.json();
   }
 }
