@@ -1,7 +1,9 @@
 import {
   AuthResponse,
   AuthTokenResponsePassword,
+  Session,
   SupabaseClient,
+  User,
   createClient,
 } from "@supabase/supabase-js";
 import Auth from "../app/interface/Auth";
@@ -12,11 +14,21 @@ class Database implements Auth {
   constructor(conn: SupabaseClient) {
     this.conn = conn;
   }
-  async register(email: string, password: string): Promise<AuthResponse> {
-    return this.conn.auth.signUp({
+  async register(email: string, password: string): Promise<User> {
+    let { data, error } = await this.conn.auth.signUp({
       email: email,
       password: password,
     });
+
+    if (error) {
+      throw error.message;
+    }
+
+    if (data.user) {
+      return data.user;
+    } else {
+      throw "Session data is missing";
+    }
   }
 
   async login(email: string, password: string): Promise<string> {
