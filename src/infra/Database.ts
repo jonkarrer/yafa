@@ -16,67 +16,47 @@ class Database implements Auth {
   constructor(conn: SupabaseClient) {
     this.conn = conn;
   }
-  async register(email: string, password: string): Promise<User> {
-    let { data, error } = await this.conn.auth.signUp({
+  async register<T>(email: string, password: string): Promise<T> {
+    return this.conn.auth.signUp({
       email: email,
       password: password,
       options: {
         emailRedirectTo: "http://localhost:3300/auth/login",
       },
-    });
-
-    if (error) {
-      throw error.message;
-    }
-
-    if (data.user) {
-      return data.user;
-    } else {
-      throw "Session data is missing";
-    }
+    }) as T;
   }
 
-  async login(email: string, password: string): Promise<string> {
-    let { data, error } = await this.conn.auth.signInWithPassword({
+  async login<T>(email: string, password: string): Promise<T> {
+    return this.conn.auth.signInWithPassword({
       email: email,
       password: password,
-    });
-
-    if (error) {
-      throw error.message;
-    }
-
-    if (data.session) {
-      return data.session.access_token;
-    } else {
-      throw "Access token is missing";
-    }
+    }) as T;
   }
 
   async logout(): Promise<any> {
     return this.conn.auth.signOut();
   }
 
-  async resetPassword(email: string): Promise<any> {
+  async resetPassword<T>(email: string): Promise<T> {
     return this.conn.auth.resetPasswordForEmail(email, {
       redirectTo: "https://example.com/update-password",
-    });
+    }) as T;
   }
 
-  async updateUserPassword(new_password: string): Promise<any> {
+  async updateUserPassword<T>(new_password: string): Promise<T> {
     return this.conn.auth.updateUser({
       password: new_password,
-    });
+    }) as T;
   }
 
-  updateUserEmail(new_email: string): Promise<any> {
+  async updateUserEmail<T>(new_email: string): Promise<T> {
     return this.conn.auth.updateUser({
       email: new_email,
-    });
+    }) as T;
   }
 
-  getCurrentUser(jwt_token: string): Promise<any> {
-    return this.conn.auth.getUser(jwt_token);
+  async getCurrentUser<T>(jwt_token: string): Promise<T> {
+    return this.conn.auth.getUser(jwt_token) as T;
   }
 
   static async attemptConnection(): Promise<Database> {
@@ -95,8 +75,8 @@ class Database implements Auth {
     }
   }
 
-  verifyEmailToken(token: string): Promise<AuthResponse> {
-    return this.conn.auth.verifyOtp({ token_hash: token, type: "email" });
+  async verifyEmailToken<T>(token: string): Promise<T> {
+    return this.conn.auth.verifyOtp({ token_hash: token, type: "email" }) as T;
   }
 }
 

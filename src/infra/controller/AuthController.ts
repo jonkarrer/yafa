@@ -1,3 +1,4 @@
+import { AuthResponse, AuthTokenResponsePassword } from "@supabase/supabase-js";
 import Auth from "../../app/interface/Auth";
 import Result from "../../domain/result";
 import Authentication from "../../web/pages/Authentication";
@@ -7,7 +8,10 @@ export default class AuthController {
     return Authentication();
   }
 
-  static async login_user(req: Request, auth: Auth): Promise<Result> {
+  static async login_user(
+    req: Request,
+    auth: Auth
+  ): Promise<AuthTokenResponsePassword> {
     let form_data = await req.formData();
 
     if (form_data) {
@@ -16,20 +20,19 @@ export default class AuthController {
 
       if (email && password) {
         try {
-          let a = await auth.login(email.toString(), password.toString());
-          return new Result(true, a);
+          return auth.login(email.toString(), password.toString());
         } catch (e) {
-          return new Result(false, e);
+          throw e;
         }
       } else {
-        return new Result(false, "Missing email or password");
+        throw new Error("Missing email or password");
       }
     } else {
-      return new Result(false, "Missing form data");
+      throw new Error("Missing form data");
     }
   }
 
-  static async register_user(req: Request, auth: Auth): Promise<Result> {
+  static async register_user(req: Request, auth: Auth): Promise<AuthResponse> {
     let form_data = await req.formData();
 
     if (form_data) {
@@ -38,37 +41,30 @@ export default class AuthController {
 
       if (email && password) {
         try {
-          let a = await auth.register(email.toString(), password.toString());
-          return new Result(true, a);
+          return auth.register(email.toString(), password.toString());
         } catch (e) {
-          return new Result(false, e);
+          throw e;
         }
       } else {
-        return new Result(false, "Missing email or password");
+        throw new Error("Missing email or password");
       }
     } else {
-      return new Result(false, "Missing form data");
+      throw new Error("Missing form data");
     }
   }
 
   static async email_confirmation_attempt(
     request: Request,
     auth: Auth
-  ): Promise<Result> {
+  ): Promise<AuthResponse> {
     let { token_hash, type } = Object.fromEntries(
       new URL(request.url).searchParams
     );
 
     if (token_hash && type) {
-      const { data, error } = await auth.verifyEmailToken(token_hash);
-
-      if (error) {
-        return new Result(false, error.message);
-      }
-
-      return new Result(true, data?.session);
+      return auth.verifyEmailToken(token_hash);
     } else {
-      return new Result(false, "Url is not complete");
+      throw new Error("Url is not complete");
     }
   }
 }

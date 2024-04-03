@@ -15,7 +15,6 @@ const Router = new Elysia()
   .get("/auth/welcome", () => "<h1>Please Confirm Email</h1>")
   .get("/auth/confirm_email", async ({ request, auth }) => {
     let check = await AuthController.email_confirmation_attempt(request, auth);
-    console.log(check);
     if (check.success) {
       let headers = new Headers();
       const maxAge = 100 * 365 * 24 * 60 * 60; // 100 years, never expires
@@ -43,9 +42,9 @@ const Router = new Elysia()
       });
     }
   })
-  .post("/auth/login", ({ request, auth }) =>
-    AuthController.login_user(request, auth)
-  )
+  .post("/auth/login", async ({ request, auth }) => {
+    let res = await AuthController.login_user(request, auth);
+  })
   .post("/auth/register", async ({ request, auth }) => {
     let register_attempt = await AuthController.register_user(request, auth);
     console.log(register_attempt);
