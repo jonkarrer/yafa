@@ -6,4 +6,5 @@ export default interface Auth {
   updateUserPassword(new_password: string): Promise<any>;
   updateUserEmail(new_email: string): Promise<any>;
   getCurrentUser(jwt_token: string): Promise<any>;
+  verifyEmailToken(token: string): Promise<any>;
 }

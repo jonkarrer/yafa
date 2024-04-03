@@ -1,6 +1,8 @@
 import {
   AuthResponse,
   AuthTokenResponsePassword,
+  EmailOtpType,
+  MobileOtpType,
   Session,
   SupabaseClient,
   User,
@@ -18,6 +20,9 @@ class Database implements Auth {
     let { data, error } = await this.conn.auth.signUp({
       email: email,
       password: password,
+      options: {
+        emailRedirectTo: "http://localhost:3300/auth/login",
+      },
     });
 
     if (error) {
@@ -88,6 +93,10 @@ class Database implements Auth {
     } else {
       throw "Can't connect to db: Invalid url or Key";
     }
+  }
+
+  verifyEmailToken(token: string): Promise<AuthResponse> {
+    return this.conn.auth.verifyOtp({ token_hash: token, type: "email" });
   }
 }
 

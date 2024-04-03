@@ -51,14 +51,25 @@ export default class AuthController {
     }
   }
 
-  static user_is_from_email_confirmation_link(request: Request): Result {
-    let params = new URL(request.url).searchParams;
-    let token = params.get("token");
+  static async email_confirmation_attempt(
+    request: Request,
+    auth: Auth
+  ): Promise<Result> {
+    let { token_hash, type } = Object.fromEntries(
+      new URL(request.url).searchParams
+    );
 
-    if (token) {
-      return new Result(true, token);
+    if (token_hash && type) {
+      const { data, error } = await auth.verifyEmailToken(token_hash);
+
+      if (error) {
+        return new Result(false, error.message);
+      }
+
+      return new Result(true, data?.session);
     } else {
-      return new Result(false, "No token in url");
+      return new Result(false, "Url is not complete");
     }
   }
 }
+// http://localhost:3300/auth/login#access_token=eyJhbGciOiJIUzI1NiIsImtpZCI6IjlMaU8rNUxPSDJabVNYcloiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzEyMDk0NTM2LCJpYXQiOjE3MTIwOTA5MzYsImlzcyI6Imh0dHBzOi8vaW1mc2plbnhhaHN6bXB0YmJnZ2suc3VwYWJhc2UuY28vYXV0aC92MSIsInN1YiI6IjVmMzhhNTlmLTFkZTUtNGY4ZC04Mzc1LWVjYTViNGE4NzY3NSIsImVtYWlsIjoia2FycmVyam9uQGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWwiOiJrYXJyZXJqb25AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInN1YiI6IjVmMzhhNTlmLTFkZTUtNGY4ZC04Mzc1LWVjYTViNGE4NzY3NSJ9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6Im90cCIsInRpbWVzdGFtcCI6MTcxMjA5MDkzNn1dLCJzZXNzaW9uX2lkIjoiN2U3ZWNhNTQtYTY3Yi00NGEyLThkMDgtOTgxNGIzMzg4MWI5IiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.IwOp6eRCqed5TkWrcdPFlE5cTdPuQGw8O3Yv1hPvuXo&expires_at=1712094536&expires_in=3600&refresh_token=ncWySrh4g0fFLBBB9oD24w&token_type=bearer&type=signup
