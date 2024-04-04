@@ -1,17 +1,15 @@
 import { AuthResponse, AuthTokenResponsePassword } from "@supabase/supabase-js";
-import Auth from "../../app/interface/Auth";
+import Auth from "../interface/Auth";
 import Result from "../../domain/result";
 import Authentication from "../../web/pages/Authentication";
+import { YafaUser } from "../../domain/user";
 
 export default class AuthController {
   static async render_ui(): Promise<JSX.Element> {
     return Authentication();
   }
 
-  static async login_user(
-    req: Request,
-    auth: Auth
-  ): Promise<AuthTokenResponsePassword> {
+  static async login_user(req: Request, auth: Auth): Promise<YafaUser> {
     let form_data = await req.formData();
 
     if (form_data) {
@@ -32,7 +30,7 @@ export default class AuthController {
     }
   }
 
-  static async register_user(req: Request, auth: Auth): Promise<AuthResponse> {
+  static async register_user(req: Request, auth: Auth): Promise<YafaUser> {
     let form_data = await req.formData();
 
     if (form_data) {
@@ -56,7 +54,7 @@ export default class AuthController {
   static async email_confirmation_attempt(
     request: Request,
     auth: Auth
-  ): Promise<AuthResponse> {
+  ): Promise<YafaUser> {
     let { token_hash, type } = Object.fromEntries(
       new URL(request.url).searchParams
     );

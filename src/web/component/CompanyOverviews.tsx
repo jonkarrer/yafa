@@ -1,4 +1,4 @@
-import { FundamentalClient } from "../clients/alpha_client";
+import { FundamentalClient } from "../../app/clients/alpha_client";
 import { CompanyOverview } from "../../domain/types";
 
 function CompanyCard({ overview }: { overview: CompanyOverview }): JSX.Element {

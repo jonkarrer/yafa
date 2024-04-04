@@ -1,5 +1,5 @@
 import { Elysia } from "elysia";
-import AuthController from "./controller/AuthController";
+import AuthController from "../app/controller/AuthController";
 import Database from "./Database";
 
 // Attempt Auth connection
@@ -14,17 +14,17 @@ const Router = new Elysia()
   .get("/auth", () => AuthController.render_ui())
   .get("/auth/welcome", () => "<h1>Please Confirm Email</h1>")
   .get("/auth/confirm_email", async ({ request, auth }) => {
-    let check = await AuthController.email_confirmation_attempt(request, auth);
-    if (check.success) {
-      let headers = new Headers();
+    let user = await AuthController.email_confirmation_attempt(request, auth);
+    let headers = new Headers();
+    if (user.session) {
       const maxAge = 100 * 365 * 24 * 60 * 60; // 100 years, never expires
       headers.append(
         "Set-Cookie",
-        `access_token=${check.message.access_token}; path=/; SameSite=Strict; HttpOnly; max-age=${maxAge}`
+        `access_token=${user.session.access_token}; path=/; SameSite=Strict; HttpOnly; max-age=${maxAge}`
       );
       headers.append(
         "Set-Cookie",
-        `refresh_token=${check.message.refresh_token}; path=/; SameSite=Strict; HttpOnly; max-age=${maxAge}`
+        `refresh_token=${user.session.refresh_token}; path=/; SameSite=Strict; HttpOnly; max-age=${maxAge}`
       );
       headers.set("Location", "http://localhost:3300");
       return new Response(null, {
@@ -33,7 +33,6 @@ const Router = new Elysia()
         headers: headers,
       });
     } else {
-      let headers = new Headers();
       headers.set("Location", "http://localhost:3300/auth");
       return new Response(null, {
         status: 302,
@@ -43,12 +42,12 @@ const Router = new Elysia()
     }
   })
   .post("/auth/login", async ({ request, auth }) => {
-    let res = await AuthController.login_user(request, auth);
+    let user = await AuthController.login_user(request, auth);
+    console.log("user", user);
   })
   .post("/auth/register", async ({ request, auth }) => {
     let register_attempt = await AuthController.register_user(request, auth);
-    console.log(register_attempt);
-    if (register_attempt.success) {
+    if (register_attempt) {
       return Response.redirect("./welcome");
     } else {
       return Response.redirect(".");

@@ -1,5 +1,5 @@
-import { SetupClient } from "../../app/clients/river_client";
-import Setups from "../../app/component/Setups";
+import { SetupClient } from "../clients/river_client";
+import Setups from "../../web/component/Setups";
 import { Setup } from "../../domain/types";
 import { get_all_unique_stock_symbols } from "../../domain/watchlists";
 
