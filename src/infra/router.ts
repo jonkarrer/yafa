@@ -1,4 +1,4 @@
-import { Elysia } from "elysia";
+import { Elysia, t } from "elysia";
 import AuthController from "../app/controller/AuthController";
 import Database from "./Database";
 import {
@@ -15,7 +15,6 @@ const Router = new Elysia()
     return new Response(error.toString());
   })
   .decorate("auth", db)
-  .get("/", () => Bun.file("public/index.html"))
   .get("/auth", () => AuthController.render_ui())
   .get("/auth/welcome", () => "<h1>Please Confirm Email</h1>")
   .get("/auth/confirm_email", async ({ request, auth }) => {
@@ -43,6 +42,18 @@ const Router = new Elysia()
   .post("/auth/register", async ({ request, auth }) => {
     await AuthController.register_user(request, auth);
     return registered("./welcome");
-  });
+  })
+  .guard(
+    {
+      cookie: t.Object({
+        access_token: t.String(),
+        refresh_token: t.String(),
+      }),
+    },
+    (app) =>
+      app.get("/", () => {
+        return Bun.file("public/index.html");
+      })
+  );
 
 export default Router;
