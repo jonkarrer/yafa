@@ -1,6 +1,4 @@
-import { AuthResponse, AuthTokenResponsePassword } from "@supabase/supabase-js";
 import Auth from "../interface/Auth";
-import Result from "../../domain/result";
 import Authentication from "../../web/pages/Authentication";
 import { YafaUser } from "../../domain/user";
 

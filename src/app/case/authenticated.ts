@@ -20,16 +20,6 @@ export function authenticated(
   });
 }
 
-export function unauthenticated(message: string): Response {
-  let headers = new Headers();
-  headers.set("Location", "http://localhost:3300/auth");
-  return new Response(null, {
-    status: 302,
-    statusText: message,
-    headers: headers,
-  });
-}
-
 export function registered(welcome_page_path: string): Response {
   return Response.redirect(welcome_page_path);
 }
