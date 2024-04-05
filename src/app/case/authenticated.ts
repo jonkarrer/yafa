@@ -1,3 +1,5 @@
+import Auth from "../interface/Auth";
+
 export function authenticated(
   access_token: string,
   refresh_token: string

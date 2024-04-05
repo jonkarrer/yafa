@@ -1,13 +1,14 @@
 import Auth from "../interface/Auth";
 import Authentication from "../../web/pages/Authentication";
 import { YafaUser } from "../../domain/user";
+import { Unauthorized } from "../../domain/error";
 
 export default class AuthController {
   static async render_ui(): Promise<JSX.Element> {
     return Authentication();
   }
 
-  static async login_user(req: Request, auth: Auth): Promise<YafaUser> {
+  static async loginUser(req: Request, auth: Auth): Promise<YafaUser> {
     let form_data = await req.formData();
 
     if (form_data) {
@@ -28,7 +29,7 @@ export default class AuthController {
     }
   }
 
-  static async register_user(req: Request, auth: Auth): Promise<YafaUser> {
+  static async registerUser(req: Request, auth: Auth): Promise<YafaUser> {
     let form_data = await req.formData();
 
     if (form_data) {
@@ -49,7 +50,32 @@ export default class AuthController {
     }
   }
 
-  static async email_confirmation_attempt(
+  static async validateSession(
+    access_token: string,
+    refresh_token: string,
+    auth: Auth
+  ): Promise<YafaUser> {
+    try {
+      let user = await auth.getCurrentUser(access_token);
+      return user;
+    } catch {
+      try {
+        let user = await auth.refreshSession(refresh_token);
+
+        if (user.session) {
+          return user;
+        } else {
+          let message = "Access denied refresh token invalid";
+          throw new Error(message);
+        }
+      } catch {
+        let message = "Access denied failed auth";
+        throw new Error(message);
+      }
+    }
+  }
+
+  static async emailConfirmationAttempt(
     request: Request,
     auth: Auth
   ): Promise<YafaUser> {
@@ -64,4 +90,3 @@ export default class AuthController {
     }
   }
 }
-// http://localhost:3300/auth/login#access_token=eyJhbGciOiJIUzI1NiIsImtpZCI6IjlMaU8rNUxPSDJabVNYcloiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzEyMDk0NTM2LCJpYXQiOjE3MTIwOTA5MzYsImlzcyI6Imh0dHBzOi8vaW1mc2plbnhhaHN6bXB0YmJnZ2suc3VwYWJhc2UuY28vYXV0aC92MSIsInN1YiI6IjVmMzhhNTlmLTFkZTUtNGY4ZC04Mzc1LWVjYTViNGE4NzY3NSIsImVtYWlsIjoia2FycmVyam9uQGdtYWlsLmNvbSIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnsiZW1haWwiOiJrYXJyZXJqb25AZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInN1YiI6IjVmMzhhNTlmLTFkZTUtNGY4ZC04Mzc1LWVjYTViNGE4NzY3NSJ9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6Im90cCIsInRpbWVzdGFtcCI6MTcxMjA5MDkzNn1dLCJzZXNzaW9uX2lkIjoiN2U3ZWNhNTQtYTY3Yi00NGEyLThkMDgtOTgxNGIzMzg4MWI5IiwiaXNfYW5vbnltb3VzIjpmYWxzZX0.IwOp6eRCqed5TkWrcdPFlE5cTdPuQGw8O3Yv1hPvuXo&expires_at=1712094536&expires_in=3600&refresh_token=ncWySrh4g0fFLBBB9oD24w&token_type=bearer&type=signup

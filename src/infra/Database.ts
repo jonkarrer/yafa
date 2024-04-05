@@ -103,6 +103,17 @@ class Database implements Auth {
     return Database.transformIntoYafaUser(data.user, null);
   }
 
+  async refreshSession(refresh_token: string): Promise<YafaUser> {
+    const { data, error } = await this.conn.auth.refreshSession({
+      refresh_token,
+    });
+
+    if (error) throw new Error(error.message);
+    if (!data.user) throw new Error("User not returned");
+    if (!data.session) throw new Error("Session not returned");
+    return Database.transformIntoYafaUser(data.user, data.session);
+  }
+
   async verifyEmailToken(token: string): Promise<YafaUser> {
     let { data, error } = await this.conn.auth.verifyOtp({
       token_hash: token,
