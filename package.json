@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@elysiajs/html": "^0.8.0",
+    "@supabase/supabase-js": "^2.41.1",
     "elysia": "^0.8.15"
   },
   "devDependencies": {
