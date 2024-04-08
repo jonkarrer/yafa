@@ -3,6 +3,7 @@ import AuthController from "../app/controller/AuthController";
 import Database from "./Database";
 import { authenticated, registered } from "../app/case/authenticated";
 import { Unauthorized } from "../domain/error";
+import User from "../web/pages/User";
 
 // Attempt Auth connection
 let db = await Database.attemptConnection();
@@ -116,7 +117,15 @@ const Router = new Elysia()
         .get("/", () => {
           return Bun.file("public/index.html");
         })
-        .get("/user/account", () => {})
+        .get("/user", () => User())
+        .post("/user/logout", ({ set }) => {
+          set.headers["Set-Cookie"] = [
+            `access_token=""; path=/; SameSite=Strict; HttpOnly; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT`,
+            `refresh_token=""; path=/; SameSite=Strict; HttpOnly; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT`,
+          ];
+
+          return new Unauthorized("Now logged out").sendResponse();
+        })
   );
 
 export default Router;
