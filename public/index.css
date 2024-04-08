@@ -1,0 +1,23 @@
+:root {
+  --black: #000517;
+
+  --p100: #1f2f3e;
+  --p80: #3e5e7c;
+
+  --g90: D9D9D9;
+  --g70: #f5f6fa;
+
+  --c100: #ebc600;
+
+  --n70: #7e84a3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+}
