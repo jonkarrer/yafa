@@ -3,7 +3,7 @@ import AuthController from "../app/controller/AuthController";
 import Database from "./Database";
 import { authenticated, registered } from "../app/case/authenticated";
 import { Unauthorized } from "../domain/error";
-import User from "../web/pages/User";
+import User from "../web/page/User";
 
 // Attempt Auth connection
 let db = await Database.attemptConnection();

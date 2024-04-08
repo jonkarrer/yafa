@@ -14,7 +14,8 @@
     "elysia": "^0.8.15"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "tailwindcss": "^3.4.3"
   },
   "module": "src/index.js"
 }
