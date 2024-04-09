@@ -7,3 +7,62 @@
     font-family: "Source Sans 3", system-ui, sans-serif;
   }
 }
+
+@layer components {
+  .panel {
+    width: 304px;
+    height: 224px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: var(--c100);
+  }
+
+  @media (min-width: 360px) {
+    .panel {
+      width: 344px;
+      height: 224px;
+    }
+  }
+
+  @media (min-width: 400px) {
+    .panel {
+      width: 384px;
+      height: 224px;
+    }
+  }
+
+  @media (min-width: 673px) {
+    .panel {
+      width: 304px;
+      height: 224px;
+    }
+  }
+
+  @media (min-width: 832px) {
+    .panel {
+      width: 344px;
+      height: 224px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .panel {
+      width: 384px;
+      height: 224px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .panel {
+      width: 464px;
+      height: 296px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .panel {
+      width: 544px;
+      height: 296px;
+    }
+  }
+}

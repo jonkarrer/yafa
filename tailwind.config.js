@@ -1,10 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./public/*.html",
-    "./src/web/component/**/*.{js, ts, tsx, jsx}",
-    "./src/web/page/**/*.{js, ts, tsx, jsx}",
-  ],
+  content: ["./public/*.html", "./src/web/**/*.{tsx, jsx, html}"],
   theme: {
     colors: {
       dark: "#000517",

@@ -558,6 +558,168 @@ html {
   --tw-contain-style:  ;
 }
 
-.h-12 {
-  height: 3rem;
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.panel {
+  width: 304px;
+  height: 224px;
+  border-radius: 6px;
+  border-width: 1px;
+  border-color: var(--c100);
+}
+
+@media (min-width: 360px) {
+  .panel {
+    width: 344px;
+    height: 224px;
+  }
+}
+
+@media (min-width: 400px) {
+  .panel {
+    width: 384px;
+    height: 224px;
+  }
+}
+
+@media (min-width: 673px) {
+  .panel {
+    width: 304px;
+    height: 224px;
+  }
+}
+
+@media (min-width: 832px) {
+  .panel {
+    width: 344px;
+    height: 224px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .panel {
+    width: 384px;
+    height: 224px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .panel {
+    width: 464px;
+    height: 296px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .panel {
+    width: 544px;
+    height: 296px;
+  }
+}
+
+.fixed {
+  position: fixed;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.mt-14 {
+  margin-top: 3.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.h-14 {
+  height: 3.5rem;
+}
+
+.h-9 {
+  height: 2.25rem;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-9 {
+  width: 2.25rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.bg-g80 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 246 250 / var(--tw-bg-opacity));
+}
+
+.bg-p80 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(62 94 124 / var(--tw-bg-opacity));
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }

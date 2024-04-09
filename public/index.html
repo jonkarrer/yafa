@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.11"
+      integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
+      crossorigin="anonymous"
+    ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,13 +35,11 @@
     <title>Yafa</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="./user">User</a>
+    <header class="fixed top-0 left-0 w-full h-14 bg-p80">
+      <nav class="flex items-center justify-between px-6 h-full">
+        <a href="./user" class="rounded-full w-9 h-9 bg-g80"></a>
       </nav>
     </header>
-    <main>
-      <h1 class="h-12">Hello World</h1>
-    </main>
+    <main hx-get="./home" hx-trigger="load" class="mt-14"></main>
   </body>
 </html>
