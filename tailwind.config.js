@@ -7,7 +7,7 @@ module.exports = {
       p100: "#1f2f3e",
       p80: "#3e5e7c",
       g100: "#ff7849",
-      g80: "#f5f6fa",
+      g70: "#f5f6fa",
       c100: "#ebc600",
       n70: "#7e84a3",
     },

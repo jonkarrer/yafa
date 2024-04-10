@@ -15,6 +15,7 @@
     border-radius: 6px;
     border-width: 1px;
     border-color: var(--c100);
+    background-color: var(--p100);
   }
 
   @media (min-width: 360px) {
