@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <TwoColumnPanel />
-      <div class="flex m-auto">
+      <div class="flex justify-between m-auto mt-6">
         <StatCard />
         <StatCard />
       </div>
