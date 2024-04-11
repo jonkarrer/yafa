@@ -592,6 +592,8 @@ html {
   }
 }
 
+/* Small */
+
 .panel {
   width: 304px;
   height: 224px;
@@ -601,61 +603,131 @@ html {
   background-color: var(--p100);
 }
 
+/* Small */
+
+.card {
+  width: 144px;
+  height: 224px;
+  border-radius: 6px;
+  border-width: 1px;
+  border-color: var(--c100);
+  background-color: var(--p100);
+}
+
 @media (min-width: 360px) {
+  /* Med */
+
   .panel {
     width: 344px;
+    height: 224px;
+  }
+
+  /* Med */
+
+  .card {
+    width: 164px;
     height: 224px;
   }
 }
 
 @media (min-width: 400px) {
+  /* Large */
+
   .panel {
     width: 384px;
+    height: 224px;
+  }
+
+  /* Large */
+
+  .card {
+    width: 184px;
     height: 224px;
   }
 }
 
 @media (min-width: 673px) {
+  /* Small */
+
   .panel {
     width: 304px;
+    height: 224px;
+  }
+
+  /* Small */
+
+  .card {
+    width: 144px;
     height: 224px;
   }
 }
 
 @media (min-width: 832px) {
+  /* Med */
+
   .panel {
     width: 344px;
+    height: 224px;
+  }
+
+  /* Med */
+
+  .card {
+    width: 144px;
     height: 224px;
   }
 }
 
 @media (min-width: 1024px) {
+  /* Large */
+
   .panel {
     width: 384px;
+    height: 224px;
+  }
+
+  /* Large */
+
+  .card {
+    width: 184px;
     height: 224px;
   }
 }
 
 @media (min-width: 1280px) {
+  /* Xtra Large */
+
   .panel {
     width: 464px;
+    height: 296px;
+  }
+
+  /* Xtra Large */
+
+  .card {
+    width: 224px;
     height: 296px;
   }
 }
 
 @media (min-width: 1440px) {
+  /* Huge */
+
   .panel {
     width: 544px;
+    height: 296px;
+  }
+
+  /* Huge */
+
+  .card {
+    width: 264px;
     height: 296px;
   }
 }
 
 .fixed {
   position: fixed;
-}
-
-.relative {
-  position: relative;
 }
 
 .left-0 {
@@ -670,24 +742,16 @@ html {
   margin: auto;
 }
 
-.mt-14 {
-  margin-top: 3.5rem;
+.m-6 {
+  margin: 1.5rem;
 }
 
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
-.mt-9 {
-  margin-top: 2.25rem;
-}
-
-.mt-12 {
-  margin-top: 3rem;
-}
-
-.mt-28 {
-  margin-top: 7rem;
+.mt-14 {
+  margin-top: 3.5rem;
 }
 
 .mt-24 {
@@ -714,32 +778,12 @@ html {
   height: 100%;
 }
 
-.h-auto {
-  height: auto;
+.h-1 {
+  height: 0.25rem;
 }
 
-.h-6 {
-  height: 1.5rem;
-}
-
-.w-9 {
-  width: 2.25rem;
-}
-
-.w-full {
-  width: 100%;
-}
-
-.w-2\/3 {
-  width: 66.666667%;
-}
-
-.w-2\/5 {
-  width: 40%;
-}
-
-.w-3\/5 {
-  width: 60%;
+.w-1 {
+  width: 0.25rem;
 }
 
 .w-5\/12 {
@@ -750,56 +794,24 @@ html {
   width: 58.333333%;
 }
 
-.w-6\/12 {
-  width: 50%;
+.w-9 {
+  width: 2.25rem;
 }
 
-.w-1 {
-  width: 0.25rem;
-}
-
-.w-1\/2 {
-  width: 50%;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
-}
-
-.flex-grow {
-  flex-grow: 1;
+.w-full {
+  width: 100%;
 }
 
 .flex-col {
   flex-direction: column;
 }
 
-.items-start {
-  align-items: flex-start;
-}
-
-.items-end {
-  align-items: flex-end;
-}
-
 .items-center {
   align-items: center;
 }
 
-.items-baseline {
-  align-items: baseline;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
 .justify-between {
   justify-content: space-between;
-}
-
-.justify-evenly {
-  justify-content: space-evenly;
 }
 
 .gap-1 {
@@ -827,10 +839,6 @@ html {
   border-bottom-width: 2px;
 }
 
-.border-r-2 {
-  border-right-width: 2px;
-}
-
 .border-p80 {
   --tw-border-opacity: 1;
   border-color: rgb(62 94 124 / var(--tw-border-opacity));
@@ -841,8 +849,13 @@ html {
   background-color: rgb(62 94 124 / var(--tw-bg-opacity));
 }
 
-.p-4 {
-  padding: 1rem;
+.p-6 {
+  padding: 1.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .px-4 {
@@ -860,11 +873,6 @@ html {
   padding-bottom: 0.25rem;
 }
 
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -875,29 +883,8 @@ html {
   padding-bottom: 1rem;
 }
 
-.pr-4 {
-  padding-right: 1rem;
-}
-
-.pl-4 {
-  padding-left: 1rem;
-}
-
-.pb-1 {
-  padding-bottom: 0.25rem;
-}
-
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
-
 .text-center {
   text-align: center;
-}
-
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 
 .text-sm {
@@ -905,9 +892,9 @@ html {
   line-height: 1.25rem;
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .text-g70 {
