@@ -17,12 +17,12 @@ export default function TwoColumnPanel() {
   return (
     <div class="panel text-g70 flex flex-col mt-24 m-auto">
       <div class="w-full bg-p80 rounded-t-md">
-        <h6 class="text-xl py-1 px-4">General Economy</h6>
+        <h6 class="text-xl font-bold py-1 px-4">General Economy</h6>
       </div>
       <div class="flex w-full justify-between h-full">
-        <div class="flex flex-col gap-1 w-7/12 px-4 py-4">
+        <div class="flex flex-col  w-7/12 px-4 py-2">
           {mockData.economy.map((item) => (
-            <div class="border-p80 border-b-2 flex items-center justify-between">
+            <div class="border-p80 border-b-2 flex items-center justify-between font-semibold mt-1 mb-1">
               <span>{item.name}:</span>
               <span>
                 {item.value} <small>%</small>
@@ -31,12 +31,12 @@ export default function TwoColumnPanel() {
           ))}
         </div>
         <div class="w-1 bg-p80"></div>
-        <div class="flex flex-col gap-1 w-5/12 px-4 py-3">
-          <h2 class="border rounded-xl border-p80 text-sm px-3 mb-2 text-center">
+        <div class="flex flex-col w-5/12 px-4 py-2 ">
+          <h2 class="border rounded-xl border-p80 text-sm px-3 mb-2 text-center font-semibold">
             Broad Market
           </h2>
           {mockData.market.map((item) => (
-            <div class="border-p80 border-b-2 flex items-center justify-between">
+            <div class="border-p80 border-b-2 flex items-center justify-between font-semibold mt-2">
               <span>{item.name}:</span>
               <span>
                 {item.value} <small>%</small>
