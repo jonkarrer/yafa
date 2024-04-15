@@ -202,6 +202,12 @@ export enum Trend {
 export type Setup = {
   symbol: string;
   recent_price: number;
-  timestamp: string;
+  sector: string;
   signal_trend: Trend;
+  stats: Array<string>;
+};
+
+export type Stat = {
+  name: string;
+  trend: Trend;
 };

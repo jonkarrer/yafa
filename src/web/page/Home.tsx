@@ -1,5 +1,6 @@
 import TwoColumnPanel from "../component/GeneralEconomyPanel";
 import NewsPanel from "../component/NewsPanel";
+import Setups from "../component/Setups";
 import StatCard from "../component/StatCard";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <StatCard />
       </div>
       <NewsPanel />
+      <Setups />
     </div>
   );
 }

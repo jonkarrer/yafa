@@ -1,54 +1,42 @@
-import { Setup } from "../../domain/types";
+import { Setup, Trend } from "../../domain/types";
+import SetupCard from "./SetupCard";
 
-export default function ({
-  setups,
-  title,
-}: {
-  setups: Array<Setup>;
-  title: string;
-}) {
-  const wrapper = {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    alignItems: "center",
-    justifyItems: "center",
-    maxWidth: "1000px",
-    margin: "auto",
+export default function Setups() {
+  let setup: Setup = {
+    symbol: "TIC",
+    recent_price: 63.45,
+    sector: "healthcare",
+    signal_trend: Trend.Bullish,
+    stats: ["smart sector", "blue chip", "weak finances"],
   };
 
-  const card = {
-    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-    width: "250px",
-    borderRadius: "10px",
-    margin: "10px",
-    paddingLeft: "1rem",
-    paddingRight: "1rem",
+  let mockData = {
+    timeframe: "Daily",
+    date: "2024-01-14",
+    time: "03:20:21",
+    title: "Lorem Ipsum",
+    setups: [setup, setup, setup],
   };
 
-  const symbol = {
-    borderBottom: "1px black solid",
-    paddingBottom: "4px",
-  };
-
-  const heading = {
-    borderBottom: "1px solid var(--contrast)",
-    paddingBottom: "1rem",
-    marginTop: "2.5rem",
-  };
+  let setups = [mockData, mockData, mockData];
 
   return (
-    <section>
-      <h2 style={heading}>{title}</h2>
-      <div style={wrapper}>
-        {setups.map((item) => (
-          <div style={card}>
-            <h4 style={symbol}>{item.symbol}</h4>
-            <p>Outlook: {item.signal_trend}</p>
-            <p>Timestamp: {item.timestamp}</p>
-            <p>Recent Price: {item.recent_price}</p>
+    <div>
+      {setups.map((item) => (
+        <section>
+          <h2 class="text-g70 text-3xl font-bold">{item.title}</h2>
+          <h5 class="text-g90 font-normal">
+            {item.timeframe} / {item.date} / {item.time}
+          </h5>
+          <div class="w-full bg-p80 h-2"></div>
+
+          <div class="grid grid-cols-2 gap-4">
+            {item.setups.map((item) => (
+              <SetupCard setup={item} />
+            ))}
           </div>
-        ))}
-      </div>
-    </section>
+        </section>
+      ))}
+    </div>
   );
 }
