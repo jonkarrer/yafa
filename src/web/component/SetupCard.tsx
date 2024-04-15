@@ -8,7 +8,7 @@ export default function ({ setup }: { setup: Setup }) {
         <h4 class="text-g70 text-lg">{setup.recent_price}</h4>
       </div>
 
-      <h2 class="border rounded-xl border-p80 text-sm px-3 mb-2 text-center font-semibold">
+      <h2 class="border rounded-xl border-p80 text-sm px-3 mb-2 text-center font-semibold text-g70 m-2">
         {setup.sector}
       </h2>
 

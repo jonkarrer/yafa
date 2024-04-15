@@ -754,6 +754,10 @@ html {
   margin: auto;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
