@@ -750,6 +750,10 @@ html {
   top: 0px;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -777,6 +781,26 @@ html {
 
 .mt-24 {
   margin-top: 6rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .flex {

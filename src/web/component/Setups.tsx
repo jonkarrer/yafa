@@ -23,12 +23,12 @@ export default function Setups() {
   return (
     <div>
       {setups.map((item) => (
-        <section>
+        <section class="mt-12">
           <h2 class="text-g70 text-3xl font-bold">{item.title}</h2>
           <h5 class="text-g90 font-normal">
             {item.timeframe} / {item.date} / {item.time}
           </h5>
-          <div class="w-full bg-p80 h-2"></div>
+          <div class="w-full bg-p80 h-2 mb-6"></div>
 
           <div class="grid grid-cols-2 gap-4">
             {item.setups.map((item) => (
