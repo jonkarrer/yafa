@@ -15,7 +15,11 @@ module.exports = {
     fontFamily: {
       sans: ["Source Sans 3", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      fontSize: {
+        ss: "0.625rem",
+      },
+    },
   },
   plugins: [],
 };

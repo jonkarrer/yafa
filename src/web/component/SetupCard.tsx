@@ -1,4 +1,5 @@
 import { Setup } from "../../domain/types";
+import ArrowDiagUp from "../asset/icons/arrow-diag-up";
 
 export default function ({ setup }: { setup: Setup }) {
   return (
@@ -8,15 +9,17 @@ export default function ({ setup }: { setup: Setup }) {
         <h4 class="text-g70 text-lg">{setup.recent_price}</h4>
       </div>
 
-      <h2 class="border rounded-xl border-p80 text-sm px-3 mb-2 text-center font-semibold text-g70 m-2">
-        {setup.sector}
+      <h2 class="border-2 rounded-xl border-p80 text-ss px-4 text-center font-semibold text-g70 m-auto my-2 w-fit ">
+        {setup.sector.toUpperCase()}
       </h2>
 
       <div>
         {setup.stats.map((item) => (
-          <div class="border-p80 border-b-2 flex items-center justify-between font-semibold mt-2">
-            <span>arr</span>
-            <span>{item}</span>
+          <div class="border-p80 border-b-2 flex items-center font-medium  mt-2 text-g70">
+            <span>
+              <ArrowDiagUp color="#F5F6FA" size="24px" />
+            </span>
+            <span class="text-sm">{item}</span>
           </div>
         ))}
       </div>
