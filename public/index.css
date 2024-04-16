@@ -892,6 +892,10 @@ html {
   gap: 1.5rem;
 }
 
+.gap-3 {
+  gap: 0.75rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -934,6 +938,11 @@ html {
 .bg-p80 {
   --tw-bg-opacity: 1;
   background-color: rgb(62 94 124 / var(--tw-bg-opacity));
+}
+
+.bg-p100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 47 62 / var(--tw-bg-opacity));
 }
 
 .p-2 {
