@@ -15,7 +15,7 @@ export default function Setups() {
     date: "2024-01-14",
     time: "03:20:21",
     title: "Lorem Ipsum",
-    setups: [setup, setup, setup],
+    setups: [setup, setup, setup, setup, setup, setup],
   };
 
   let setups = [mockData, mockData, mockData];
@@ -25,12 +25,12 @@ export default function Setups() {
       {setups.map((item) => (
         <section class="mt-12">
           <h2 class="text-g70 text-3xl font-bold">{item.title}</h2>
-          <h5 class="text-g90 font-normal">
+          <h5 class="text-g90 font-normal mb-2">
             {item.timeframe} / {item.date} / {item.time}
           </h5>
-          <div class="w-full bg-p80 h-2 mb-6"></div>
+          <div class="w-full bg-p80 h-1 mb-6"></div>
 
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-2 gap-4 tab-sm:grid-cols-4">
             {item.setups.map((item) => (
               <SetupCard setup={item} />
             ))}

@@ -28,7 +28,7 @@ export default function NewsPanel() {
             <p class="text-n70 text-xs">
               {item.source} - {item.timestamp}
             </p>
-            <h4 class="text-lg text-g70 font-semibold">{item.headline}</h4>
+            <h4 class="text-lg text-g70 font-medium">{item.headline}</h4>
           </div>
         ))}
       </div>
