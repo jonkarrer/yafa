@@ -27,6 +27,15 @@
     border-color: var(--c100);
     background-color: var(--p100);
   }
+  /* Small */
+  .half-card {
+    width: 144px;
+    height: 106px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: var(--c100);
+    background-color: var(--p100);
+  }
 
   @media (min-width: 360px) {
     /* Med */
@@ -38,6 +47,11 @@
     .card {
       width: 164px;
       height: 224px;
+    }
+    /* Med */
+    .half-card {
+      width: 164px;
+      height: 106px;
     }
   }
 
@@ -52,6 +66,11 @@
       width: 184px;
       height: 224px;
     }
+    /* Large */
+    .half-card {
+      width: 184px;
+      height: 106px;
+    }
   }
 
   @media (min-width: 673px) {
@@ -64,6 +83,11 @@
     .card {
       width: 144px;
       height: 224px;
+    }
+    /* Small */
+    .half-card {
+      width: 144px;
+      height: 106px;
     }
   }
 
@@ -78,6 +102,11 @@
       width: 164px;
       height: 224px;
     }
+    /* Med */
+    .half-card {
+      width: 164px;
+      height: 106px;
+    }
   }
 
   @media (min-width: 1024px) {
@@ -90,6 +119,11 @@
     .card {
       width: 184px;
       height: 224px;
+    }
+    /* Large */
+    .half-card {
+      width: 184px;
+      height: 106px;
     }
   }
 
@@ -104,6 +138,11 @@
       width: 224px;
       height: 296px;
     }
+    /* Xtra Large */
+    .half-card {
+      width: 224px;
+      height: 148px;
+    }
   }
 
   @media (min-width: 1440px) {
@@ -116,6 +155,11 @@
     .card {
       width: 264px;
       height: 296px;
+    }
+    /* Xtra Large */
+    .half-card {
+      width: 264px;
+      height: 148px;
     }
   }
 }

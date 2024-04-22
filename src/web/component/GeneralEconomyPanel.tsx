@@ -15,7 +15,7 @@ export default function TwoColumnPanel() {
     ],
   };
   return (
-    <div class="panel text-g70 flex flex-col mt-24 m-auto">
+    <div class="panel text-g70 flex flex-col">
       <div class="w-full bg-p80 rounded-t-md">
         <h6 class="text-xl font-bold py-1 px-2">General Economy</h6>
       </div>

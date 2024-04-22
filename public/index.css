@@ -632,6 +632,17 @@ html {
   background-color: var(--p100);
 }
 
+/* Small */
+
+.half-card {
+  width: 144px;
+  height: 106px;
+  border-radius: 6px;
+  border-width: 1px;
+  border-color: var(--c100);
+  background-color: var(--p100);
+}
+
 @media (min-width: 360px) {
   /* Med */
 
@@ -645,6 +656,13 @@ html {
   .card {
     width: 164px;
     height: 224px;
+  }
+
+  /* Med */
+
+  .half-card {
+    width: 164px;
+    height: 106px;
   }
 }
 
@@ -662,6 +680,13 @@ html {
     width: 184px;
     height: 224px;
   }
+
+  /* Large */
+
+  .half-card {
+    width: 184px;
+    height: 106px;
+  }
 }
 
 @media (min-width: 673px) {
@@ -677,6 +702,13 @@ html {
   .card {
     width: 144px;
     height: 224px;
+  }
+
+  /* Small */
+
+  .half-card {
+    width: 144px;
+    height: 106px;
   }
 }
 
@@ -694,6 +726,13 @@ html {
     width: 164px;
     height: 224px;
   }
+
+  /* Med */
+
+  .half-card {
+    width: 164px;
+    height: 106px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -709,6 +748,13 @@ html {
   .card {
     width: 184px;
     height: 224px;
+  }
+
+  /* Large */
+
+  .half-card {
+    width: 184px;
+    height: 106px;
   }
 }
 
@@ -726,6 +772,13 @@ html {
     width: 224px;
     height: 296px;
   }
+
+  /* Xtra Large */
+
+  .half-card {
+    width: 224px;
+    height: 148px;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -741,6 +794,13 @@ html {
   .card {
     width: 264px;
     height: 296px;
+  }
+
+  /* Xtra Large */
+
+  .half-card {
+    width: 264px;
+    height: 148px;
   }
 }
 
@@ -821,6 +881,10 @@ html {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-1 {
   height: 0.25rem;
 }
@@ -892,6 +956,10 @@ html {
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+.gap-1 {
+  gap: 0.25rem;
 }
 
 .rounded-full {
@@ -1064,6 +1132,10 @@ html {
 }
 
 @media (min-width: 673px) {
+  .tab-sm\:grid {
+    display: grid;
+  }
+
   .tab-sm\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
