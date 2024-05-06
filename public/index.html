@@ -34,13 +34,21 @@
 
       body {
         background-color: var(--black);
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
       }
     </style>
     <title>Yafa</title>
   </head>
   <body>
-    <header class="fixed top-0 left-0 w-full h-14 bg-p100 z-50">
-      <nav class="flex items-center justify-between px-6 h-full">
+    <header
+      class="fixed top-0 left-0 w-full h-14 bg-p100 z-50 lg:w-44 lg:h-full"
+    >
+      <nav class="flex items-center justify-between px-6 h-full lg:hidden">
         <a href="./user" class="rounded-full flex items-center gap-3">
           <svg
             width="35"
@@ -109,7 +117,73 @@
           </svg>
         </span>
       </nav>
+
+      <nav
+        class="hidden lg:flex px-6 py-4 flex-col gap-4 relative h-full text-g70"
+      >
+        <a href="/" class="flex items-center gap-3 border-b-2 border-g70 pb-4">
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 123 123"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="58"
+              y1="122.52"
+              x2="58"
+              y2="0.480469"
+              stroke="#F5F6FA"
+              stroke-width="6"
+            />
+            <line
+              x1="59.6553"
+              y1="64.8518"
+              x2="122.04"
+              y2="64.8518"
+              stroke="#F5F6FA"
+              stroke-width="6"
+            />
+            <line
+              x1="58.175"
+              y1="3.93375"
+              x2="115.175"
+              y2="63.9338"
+              stroke="#F5F6FA"
+              stroke-width="6"
+            />
+            <line
+              x1="19.3202"
+              y1="19.0982"
+              x2="59.7049"
+              y2="68.3665"
+              stroke="#F5F6FA"
+              stroke-width="6"
+            />
+            <circle
+              cx="61.5"
+              cy="61.5"
+              r="58.5"
+              stroke="#F5F6FA"
+              stroke-width="6"
+            />
+          </svg>
+          <h2 class="text-g70 text-lg">YAFA</h2>
+        </a>
+        <a href="/">Home</a>
+        <a href="/">Setups</a>
+        <a href="/">Subscription</a>
+        <a href="/">FAQ</a>
+        <div class="absolute bottom-4 left-0 w-full px-6">
+          <a href="/">Account</a>
+        </div>
+      </nav>
     </header>
-    <main hx-get="./home" hx-trigger="load" class="m-auto w-fit mb-8"></main>
+    <main
+      hx-get="./home"
+      hx-trigger="load"
+      class="m-auto w-fit mb-8 lg:pl-40"
+    ></main>
   </body>
 </html>
