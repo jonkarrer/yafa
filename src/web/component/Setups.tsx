@@ -24,10 +24,12 @@ export default function Setups() {
     <div>
       {setups.map((item) => (
         <section class="mt-12">
-          <h2 class="text-g70 text-3xl font-bold">{item.title}</h2>
-          <h5 class="text-g90 font-normal mb-2">
-            {item.timeframe} / {item.date} / {item.time}
-          </h5>
+          <div class="lg:flex items-center justify-between mb-2">
+            <h2 class="text-g70 text-3xl font-bold">{item.title}</h2>
+            <h5 class="text-n70 font-normal  lg:mb-0 ">
+              {item.timeframe} / {item.date} / {item.time}
+            </h5>
+          </div>
           <div class="w-full bg-p80 h-1 mb-6"></div>
 
           <div class="grid grid-cols-2 gap-4 tab-sm:grid-cols-4">
