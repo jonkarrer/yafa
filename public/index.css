@@ -777,7 +777,7 @@ html {
 
   .half-card {
     width: 224px;
-    height: 148px;
+    height: 142px;
   }
 }
 
@@ -800,7 +800,7 @@ html {
 
   .half-card {
     width: 264px;
-    height: 148px;
+    height: 142px;
   }
 }
 
@@ -820,16 +820,16 @@ html {
   bottom: 0px;
 }
 
+.bottom-4 {
+  bottom: 1rem;
+}
+
 .left-0 {
   left: 0px;
 }
 
 .top-0 {
   top: 0px;
-}
-
-.bottom-4 {
-  bottom: 1rem;
 }
 
 .z-50 {
@@ -996,14 +996,14 @@ html {
   border-bottom-width: 4px;
 }
 
-.border-p80 {
-  --tw-border-opacity: 1;
-  border-color: rgb(62 94 124 / var(--tw-border-opacity));
-}
-
 .border-g70 {
   --tw-border-opacity: 1;
   border-color: rgb(245 246 250 / var(--tw-border-opacity));
+}
+
+.border-p80 {
+  --tw-border-opacity: 1;
+  border-color: rgb(62 94 124 / var(--tw-border-opacity));
 }
 
 .bg-p100 {
@@ -1022,14 +1022,6 @@ html {
 
 .p-3 {
   padding: 0.75rem;
-}
-
-.p-1 {
-  padding: 0.25rem;
-}
-
-.p-6 {
-  padding: 1.5rem;
 }
 
 .px-2 {
@@ -1067,16 +1059,16 @@ html {
   padding-bottom: 1rem;
 }
 
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
 .pb-6 {
   padding-bottom: 1.5rem;
 }
 
 .pl-4 {
   padding-left: 1rem;
-}
-
-.pb-4 {
-  padding-bottom: 1rem;
 }
 
 .text-center {
@@ -1180,19 +1172,25 @@ html {
     height: 100%;
   }
 
-  .lg\:w-52 {
-    width: 13rem;
-  }
-
-  .lg\:w-40 {
-    width: 10rem;
-  }
-
   .lg\:w-44 {
     width: 11rem;
   }
 
   .lg\:pl-40 {
     padding-left: 10rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:w-48 {
+    width: 12rem;
+  }
+
+  .xl\:w-52 {
+    width: 13rem;
+  }
+
+  .xl\:pl-48 {
+    padding-left: 12rem;
   }
 }
