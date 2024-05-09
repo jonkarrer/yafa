@@ -14,3 +14,15 @@ http://localhost:3300/auth/confirm_email?token_hash=26010e3719cc489634ac5fdf3eab
 - middleware looks for these and tries to verify the session
 - In case of not authed, throws an exception and routes back to login.
 - To logout, we just clear these cookies.
+
+## Dev
+
+Start server and style engine
+
+```bash
+just start
+```
+
+```bash
+just style
+```
