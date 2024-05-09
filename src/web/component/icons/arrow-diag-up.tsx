@@ -1,14 +1,8 @@
-export default function ArrowDiagUp({
-  color,
-  size,
-}: {
-  color: string;
-  size: string;
-}) {
+export default function ArrowDiagUp({ color }: { color: string }) {
   return (
     <svg
-      width={size}
-      height={size}
+      width="auto"
+      height="auto"
       viewBox="0 0 23 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -46,7 +46,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Source Sans 3, sans-serif;
+  font-family: Inter, system-ui, sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -901,6 +901,10 @@ html {
   height: 100%;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .w-1 {
   width: 0.25rem;
 }
@@ -920,6 +924,10 @@ html {
 
 .w-full {
   width: 100%;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .transform {
@@ -1135,11 +1143,6 @@ html {
   color: rgb(245 246 250 / var(--tw-text-opacity));
 }
 
-.text-g90 {
-  --tw-text-opacity: 1;
-  color: rgb(209 209 209 / var(--tw-text-opacity));
-}
-
 .text-n70 {
   --tw-text-opacity: 1;
   color: rgb(126 132 163 / var(--tw-text-opacity));
@@ -1160,25 +1163,20 @@ html {
 }
 
 @media (min-width: 1024px) {
-  .lg\:m-auto {
-    margin: auto;
-  }
-
-  .lg\:mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
 
-  .lg\:mt-1 {
-    margin-top: 0.25rem;
+  .lg\:mt-5 {
+    margin-top: 1.25rem;
   }
 
-  .lg\:mb-1 {
-    margin-bottom: 0.25rem;
+  .lg\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
+  .lg\:mt-12 {
+    margin-top: 3rem;
   }
 
   .lg\:flex {
@@ -1197,46 +1195,6 @@ html {
     width: 11rem;
   }
 
-  .lg\:w-fit {
-    width: -moz-fit-content;
-    width: fit-content;
-  }
-
-  .lg\:justify-center {
-    justify-content: center;
-  }
-
-  .lg\:gap-5 {
-    gap: 1.25rem;
-  }
-
-  .lg\:gap-3 {
-    gap: 0.75rem;
-  }
-
-  .lg\:gap-2 {
-    gap: 0.5rem;
-  }
-
-  .lg\:border-b-4 {
-    border-bottom-width: 4px;
-  }
-
-  .lg\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .lg\:py-1 {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-  }
-
-  .lg\:px-9 {
-    padding-left: 2.25rem;
-    padding-right: 2.25rem;
-  }
-
   .lg\:pl-40 {
     padding-left: 10rem;
   }
@@ -1248,6 +1206,16 @@ html {
     margin-right: auto;
   }
 
+  .xl\:my-3 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .xl\:my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .xl\:mb-1 {
     margin-bottom: 0.25rem;
   }
@@ -1256,8 +1224,16 @@ html {
     margin-top: 0.25rem;
   }
 
-  .xl\:w-48 {
-    width: 12rem;
+  .xl\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .xl\:h-8 {
+    height: 2rem;
+  }
+
+  .xl\:h-9 {
+    height: 2.25rem;
   }
 
   .xl\:w-52 {
@@ -1267,6 +1243,14 @@ html {
   .xl\:w-fit {
     width: -moz-fit-content;
     width: fit-content;
+  }
+
+  .xl\:w-8 {
+    width: 2rem;
+  }
+
+  .xl\:w-9 {
+    width: 2.25rem;
   }
 
   .xl\:justify-center {
@@ -1285,12 +1269,36 @@ html {
     border-bottom-width: 4px;
   }
 
+  .xl\:p-3 {
+    padding: 0.75rem;
+  }
+
   .xl\:px-9 {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
   }
 
+  .xl\:py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
   .xl\:pl-48 {
     padding-left: 12rem;
+  }
+
+  .xl\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .xl\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .xl\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }

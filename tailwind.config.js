@@ -23,7 +23,7 @@ module.exports = {
       n70: "#7e84a3",
     },
     fontFamily: {
-      sans: ["Source Sans 3", "sans-serif"],
+      sans: ["Inter", "system-ui", "sans-serif"],
     },
     extend: {
       fontSize: {
