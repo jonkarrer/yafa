@@ -6,7 +6,7 @@ import StatCard from "../component/StatCard";
 
 export default function Home() {
   return (
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-6 mt-12 ">
       {/* <section class="grid tab-sm:grid-cols-2 gap-4 mt-24 lg:mt-12">
         <GeneralEconomyPanel />
         <div class="flex justify-between w-full">
