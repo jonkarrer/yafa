@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Small */
+  .panel {
+    width: 304px;
+    height: 224px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: var(--c100);
+    background-color: var(--p100);
+  }
+  /* Small */
+  .card {
+    width: 144px;
+    height: 224px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: var(--c100);
+    background-color: var(--p100);
+  }
+  /* Small */
+  .half-card {
+    width: 144px;
+    height: 106px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: var(--c100);
+    background-color: var(--p100);
+  }
+
+  @media (min-width: 360px) {
+    /* Med */
+    .panel {
+      width: 344px;
+      height: 224px;
+    }
+    /* Med */
+    .card {
+      width: 164px;
+      height: 224px;
+    }
+    /* Med */
+    .half-card {
+      width: 164px;
+      height: 106px;
+    }
+  }
+
+  @media (min-width: 400px) {
+    /* Large */
+    .panel {
+      width: 384px;
+      height: 224px;
+    }
+    /* Large */
+    .card {
+      width: 184px;
+      height: 224px;
+    }
+    /* Large */
+    .half-card {
+      width: 184px;
+      height: 106px;
+    }
+  }
+
+  @media (min-width: 673px) {
+    /* Small */
+    .panel {
+      width: 304px;
+      height: 224px;
+    }
+    /* Small */
+    .card {
+      width: 144px;
+      height: 224px;
+    }
+    /* Small */
+    .half-card {
+      width: 144px;
+      height: 106px;
+    }
+  }
+
+  @media (min-width: 832px) {
+    /* Med */
+    .panel {
+      width: 344px;
+      height: 224px;
+    }
+    /* Med */
+    .card {
+      width: 164px;
+      height: 224px;
+    }
+    /* Med */
+    .half-card {
+      width: 164px;
+      height: 106px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    /* Large */
+    .panel {
+      width: 384px;
+      height: 224px;
+    }
+    /* Large */
+    .card {
+      width: 184px;
+      height: 224px;
+    }
+    /* Large */
+    .half-card {
+      width: 184px;
+      height: 106px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    /* Xtra Large */
+    .panel {
+      width: 464px;
+      height: 296px;
+    }
+    /* Xtra Large */
+    .card {
+      width: 224px;
+      height: 296px;
+    }
+    /* Xtra Large */
+    .half-card {
+      width: 224px;
+      height: 142px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    /* Huge */
+    .panel {
+      width: 544px;
+      height: 296px;
+    }
+    /* Huge */
+    .card {
+      width: 264px;
+      height: 296px;
+    }
+    /* Xtra Large */
+    .half-card {
+      width: 264px;
+      height: 142px;
+    }
+  }
+}

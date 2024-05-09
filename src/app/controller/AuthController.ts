@@ -1,5 +1,5 @@
 import Auth from "../interface/auth";
-import Authentication from "../../web/pages/Authentication";
+import Authentication from "../../web/page/Authentication";
 import { YafaUser } from "../../domain/user";
 import { Unauthorized } from "../../domain/error";
 

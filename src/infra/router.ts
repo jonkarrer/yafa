@@ -3,7 +3,8 @@ import AuthController from "../app/controller/AuthController";
 import Database from "./Database";
 import { authenticated, registered } from "../app/case/authenticated";
 import { Unauthorized } from "../domain/error";
-import User from "../web/pages/User";
+import User from "../web/page/User";
+import Home from "../web/page/Home";
 
 // Attempt Auth connection
 let db = await Database.attemptConnection();
@@ -117,6 +118,7 @@ const Router = new Elysia()
         .get("/", () => {
           return Bun.file("public/index.html");
         })
+        .get("/home", () => Home())
         .get("/user", () => User())
         .post("/user/logout", ({ set }) => {
           set.headers["Set-Cookie"] = [
